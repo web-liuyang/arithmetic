@@ -1,0 +1,41 @@
+{
+  "name": "arithmetic",
+  "version": "1.0.0",
+  "description": "乾堂自用加密算法",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.es.js",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c rollup.config.js && yarn copy",
+    "copy": "copyfiles -f src/index.d.ts dist"
+  },
+  "author": {
+    "name": "LiuYang",
+    "email": "984584014@qq.com",
+    "url": "https://webliuyang.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuneAndGreen/sm-crypto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/owner/project/issues",
+    "email": "project@hostname.com"
+  },
+  "keywords": [
+    "sm",
+    "js",
+    "crypto",
+    "qiantoon"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@rollup/plugin-babel": "^5.3.0",
+    "copyfiles": "^2.4.1",
+    "rollup": "^2.42.1",
+    "rollup-plugin-uglify": "^6.0.4"
+  },
+  "license": "MIT"
+}
