@@ -517,6 +517,7 @@ function sm4(inArray, key, cryptFlag, { padding = 'pkcs#5', mode, output = 'stri
   if (mode === CBC) {
     // @TODO，CBC 模式，默认走 ECB 模式
   }
+  // console.log(key)
 
   // 检查 key
   if (typeof key === 'string') {
@@ -525,6 +526,8 @@ function sm4(inArray, key, cryptFlag, { padding = 'pkcs#5', mode, output = 'stri
 
     key = hexToArray(key);
   }
+
+  
 
   if (key.length !== 128 / 8) {
     // key 不是 128 比特
@@ -535,18 +538,18 @@ function sm4(inArray, key, cryptFlag, { padding = 'pkcs#5', mode, output = 'stri
   if (typeof inArray === 'string') {
     if (cryptFlag !== DECRYPT) {
       // 加密，输入为 utf8 串
-      console.log('加密');
+      // console.log('加密');
       inArray = utf8ToArray(inArray);
     } else {
       // 解密，输入为 16 进制串
-      console.log('解密');
+      // console.log('解密');
       inArray = hexToArray(inArray);
     }
   } else {
     inArray = [...inArray];
   }
 
-  console.log('inArray = ' + inArray);
+  // console.log('inArray = ' + inArray);
 
   // 新增填充
   if (padding === 'pkcs#5' && cryptFlag !== DECRYPT) {
@@ -574,15 +577,12 @@ function sm4(inArray, key, cryptFlag, { padding = 'pkcs#5', mode, output = 'stri
     point += BLOCK;
   }
 
-  console.log('outArray => ', outArray);
+  // console.log('outArray => ', outArray);
 
   // // 去除填充
   if (padding === 'pkcs#5' && cryptFlag === DECRYPT) {
     const paddingCount = outArray[outArray.length - 1];
-    // console.log("paddingCount => ",paddingCount)
-    // console.log("outArray.length - paddingCount => ",outArray.length - paddingCount)
     outArray.splice(outArray.length - paddingCount, paddingCount);
-    // console.log(outArray.splice(-38,54))
   }
 
   // outArray 为空了
