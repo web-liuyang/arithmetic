@@ -11,6 +11,17 @@
     "build": "rollup -c rollup.config.js && yarn copy",
     "copy": "copyfiles -f src/index.d.ts dist"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --writ"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
   "author": {
     "name": "LiuYang",
     "email": "984584014@qq.com",
